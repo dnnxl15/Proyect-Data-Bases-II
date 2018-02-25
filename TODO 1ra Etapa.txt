@@ -1,0 +1,12 @@
+1 etapa
+- registro y autenticacion de usuarios
+- registro de profesor
+- profesor podra elegir la institucion y si no crearla
+- crear escuela, prog. academico, malla curricular y materias
+- registro de materias en malla
+- estudiantes indican el prog academico
+- cada periodo lectivo podran matricular un grupo en alguna materia de su prog academico
+
+- coleccion de estudiantes
+- coleccion de universidad
+- lista de carreras
