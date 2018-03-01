@@ -1,8 +1,20 @@
 var Schema = require("mongoose").Schema;
 
+var administrator = new Schema({
+	name : {type : String, require : true},
+	lastname : {type : String, require : true},
+	username : {type : String, require : true, unique : true},
+	password : {type : String,, require : true},
+	admiID : {type : String, require : true, unique : true},
+	cellPhone : {type : String, require : true, unique : true},
+	email : {type : String, require : true, unique : true}
+});
+
 var student = new Schema({
 	name : {type : String, require : true},
 	lastname : {type : String, require : true},
+	username : {type : String, require : true, unique : true},
+	password : {type : String,, require : true},
 	studentID : {type : String, require : true, unique : true},
 	cellPhone : {type : String, require : true, unique : true},
 	email : {type : String, require : true, unique : true},
@@ -15,6 +27,8 @@ var student = new Schema({
 var profesor = new Schema({
 	name : {type : String, require : true},
 	lastname : {type : String, require : true},
+	username : {type : String, require : true, unique : true},
+	password : {type : String,, require : true},
 	profesorID : {type : String, require : true, unique : true},
 	cellPhone : {type : String, require : true, unique : true},
 	email : {type : String, require : true, unique : true},
