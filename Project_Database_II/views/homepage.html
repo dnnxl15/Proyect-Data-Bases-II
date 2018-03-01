@@ -2,8 +2,19 @@
 <html>
 <head>
 <script>
-function openWin() {
-    window.open("signUp.html");
+function openWin()
+{
+	var comboboxValue = document.getElementById('combobox').value;
+    if (comboboxValue === "student")
+    {
+        window.open("StudentSignUp.html"); 
+    }
+    else if (comboboxValue === "profesor")
+    {
+        window.open("ProfesorSignUp.html");
+    }
+    else 
+    	window.open("AdmiSignUp.html");
 }
 </script>
 </head>
@@ -15,12 +26,12 @@ function openWin() {
 		<font size="5" face="Arial"> Password: <br></font>
 		<input type="text" name="password"><br><br>
 		<font size="5" face="Arial"> Create a new: <br></font>
-		<select>
-  			<option value="Student">Student</option>
-  			<option value="Profesor">Profesor</option>
-  			<option value="Administrator">Administrator</option>
-</select>
-		<input type="button" value="Create" onclick="openWin()">
+  		<select id="combobox">
+  			<option value="student">Student </option>
+  			<option value="profesor">Profesor </option>
+  			<option value="administrator">Administrator </option>
+		</select>
+		<button onclick="openWin()">Register </button> 
 	</form>
 </body>
 
