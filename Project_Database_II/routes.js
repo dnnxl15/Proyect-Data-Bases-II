@@ -1,26 +1,32 @@
 var express = require('express');
-var router = express.Router();
+module.exports = function(app){
+	var student_controller = require('./controllers/users_controller');
+	app.use('/static', express.static('./static')).
+		use('/lib', express.static('../lib'));
 
+/**
 // Home page route.
-router.get('/', function (req, res) {
+app.get('/', function (req, res) {
   res.send('Home page');
 });
 
 // About page route.
-router.get('/signUp/administrator', function (req, res) {
+app.get('/signUp/administrator', function (req, res) {
   res.send('Sign up administrator');
 });
 
-router.get('/signUp/student', function (req, res) {
+app.get('/signUp/student', function (req, res) {
   res.send('Sign up student');
 });
 
-router.get('/signUp/profesor', function (req, res) {
+app.get('/signUp/profesor', function (req, res) {
   res.send('Sign up profesor');
 });
 
-router.get('/signUp/student', function (req, res) {
+app.get('/signUp/student', function (req, res) {
   res.send('Sign up student');
-});
+});**/
 
-module.exports = router;
+app.post('/signup/student', student_controller.student_signUp);
+
+}

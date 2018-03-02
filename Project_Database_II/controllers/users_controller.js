@@ -1,60 +1,32 @@
 var crypto = require('crypto');
 var mongoose = require('mongoose');
-	User = mongoose.model('Student');
+	Student = mongoose.model('Student');
 
 function hashPW(pwd){
 	return crypto.createHash('sha256').update(pwd).
 		digest('base64').toString();
 }
 
-exports.signup = function(req, res){
-	var user = new User({username: req.body.username});
-	user.set('hashed_password', hashPW(req.body.password));
-	user.set('email', req.body.email);
-	user.save(function(err){
+exports.student_signUp = function(req, res) {
+	var student = new Student({name: req.body.name})
+	student.set('lastname', req.body.lastname);
+	student.set('username', req.body.username);
+	student.set('password', req.body.password);
+	student.set('studentID', req.body.studentID);
+	student.set('cellPhone', req.body.cellPhone);
+	student.set('email', req.body.email);
+	student.set('universityName', req.body.university.universityName);
+	student.set('carrerName', req.body.university.carrerName);
+	student.save(function(err){
 		if(err){
 			res.session.error = err;
-			res.redirect('/signUp');
-		}else{
-			req.session.user = user.id;
-			req.session.username = user.username;
-			req.session.msg = 'Authenticated as ' + user.username;
-			res.redirect('/');
+			res.redirect('/signup/student');
 		}
-	});
-};
-
-exports.login = function(req, res){
-	User.findOne({username: req.body.username})
-	.exec(function(err, user){
-		if(!user){
-			err = 'User not found.';
-		}else if(user.hashed_password === hashPW(req.body.password.toString())){
-			req.session.regenerate(function(){
-				req.session.user = user.id;
-				req.session.username = user.username;
-				req.session.msg = 'Authenticated as ' + user.username;
-				res.redirect('/');
-			});
-		}else{
-			err = 'Authentication failed.';
+		else{
+			req.
 		}
-		if(err){
-			req.session.regenerate(function(){
-				req.session.msg = err;
-				res.redirect('/homepage');
-			});
-		}
-	});
+	})
+    res.send('NOT IMPLEMENTED: sign signUp');
 };
 
 
-exports.add = function(req, res) {
- var client = new Client({
- name: req.body.name
- });
- client.save(function(err, client) {
- if(err) return res.status(500).send(err.message);
- res.status(200).json(client);
- });
-};
