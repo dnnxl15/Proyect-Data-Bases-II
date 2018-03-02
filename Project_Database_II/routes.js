@@ -1,23 +1,26 @@
-var ClientCtrl = require('./controllers/clients.js');
+var express = require('express');
+var router = express.Router();
 
-// Opens App Routes
-module.exports = function(express,app) {
-
-// HOME
-app.get('/', function(req, res, next) {
- res.sendfile('./public/index.html');
+// Home page route.
+router.get('/', function (req, res) {
+  res.send('Home page');
 });
 
-//API
-var api = express.Router();
- //Clients
- api.route('/clients') 
- .get(ClientCtrl.findAll)
- .post(ClientCtrl.add);
- api.route('/clients/:id') 
- .get(ClientCtrl.findById)
- .put(ClientCtrl.update)
- .delete(ClientCtrl.delete);
-app.use('/api/v1/', api);
+// About page route.
+router.get('/signUp/administrator', function (req, res) {
+  res.send('Sign up administrator');
+});
 
-};
+router.get('/signUp/student', function (req, res) {
+  res.send('Sign up student');
+});
+
+router.get('/signUp/profesor', function (req, res) {
+  res.send('Sign up profesor');
+});
+
+router.get('/signUp/student', function (req, res) {
+  res.send('Sign up student');
+});
+
+module.exports = router;
