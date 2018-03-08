@@ -8,11 +8,8 @@ const studentSchema = mongoose.Schema({
 	studentID : {type : String, require : true, unique : true},
 	cellPhone : {type : String, require : true, unique : true},
 	email : {type : String, require : true, unique : true},
-	university : [{
-		universityName : {type : String, require : true},
-		carrerName : {type : String, require : true}
-	}]
-
+	universityName : {type : String, require : true},
+	carrerName : {type : String, require : true}
 });
 
 const Student = module.exports = mongoose.model('Student', studentSchema);
