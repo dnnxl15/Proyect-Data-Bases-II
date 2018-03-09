@@ -60,7 +60,7 @@ router.post('/Student', (req, res, next)=>{
 // Author: Johan Torres
 
 router.delete('/principal/main/:id', (req, res, next)=>{
-	Student.remove({_id: req.params.id}, function(err, result){
+	Student.remove({studentID: req.params.id}, function(err, result){
 		if(err)
 		{
 			res.json(err);
@@ -76,13 +76,12 @@ router.delete('/principal/main/:id', (req, res, next)=>{
 // Author: Johan Torres
 
 router.put('/principal/main/:id', (req, res, next)=>{
-	Student.findOneAndUpdate({ _id: req.params.id }, {
+	Student.findOneAndUpdate({ studentID: req.params.id }, {
 		$set: {
 			name: req.body.name,
 			lastname: req.body.lastname,
 			username: req.body.username,
 			password: req.body.password,
-			studentID: req.body.studentID,
 			cellPhone: req.body.cellPhone,
 			email: req.body.email,
 			universityName: req.body.universityName,
@@ -152,7 +151,7 @@ router.post('/Profesor', (req, res, next)=>{
 // Author: Johan Torres
 
 router.delete('/principal/main/:id', (req, res, next)=>{
-	Profesor.remove({_id: req.params.id}, function(err, result){
+	Profesor.remove({profesorID: req.params.id}, function(err, result){
 		if(err)
 		{
 			res.json(err);
@@ -168,13 +167,12 @@ router.delete('/principal/main/:id', (req, res, next)=>{
 // Author: Johan Torres
 
 router.put('/principal/main/:id', (req, res, next)=>{
-	Profesor.findOneAndUpdate({ _id: req.params.id }, {
+	Profesor.findOneAndUpdate({ profesorID: req.params.id }, {
 		$set: {
 			name: req.body.name,
 			lastname: req.body.lastname,
 			username: req.body.username,
 			password: req.body.password,
-			profesorID: req.body.profesorID,
 			cellPhone: req.body.cellPhone,
 			email: req.body.email,
 			universityName: req.body.universityName,
