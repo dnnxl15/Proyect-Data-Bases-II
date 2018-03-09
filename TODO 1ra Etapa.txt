@@ -2,6 +2,7 @@
 - registro y autenticacion de usuarios
 - registro de profesor
 - profesor podra elegir la institucion y si no crearla
+
 - crear escuela, prog. academico, malla curricular y materias
 - registro de materias en malla
 - estudiantes indican el prog academico
