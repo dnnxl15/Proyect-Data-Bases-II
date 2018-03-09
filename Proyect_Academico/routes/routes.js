@@ -321,7 +321,7 @@ router.delete('/principal/main/university/:name', (req, res, next)=>{
 router.put('/principal/main/university/:id', (req, res, next)=>{
 	University.findOneAndUpdate({ _id: req.params.id }, {
 		$set: {
-			name: req.body.name
+			name: req.body.name,
 			legalNumber: req.body.legalNumber
 		}
 	},
@@ -334,5 +334,98 @@ router.put('/principal/main/university/:id', (req, res, next)=>{
 	});
 });
 
+/// ADD SCHOOLS TO UNIVERSITY ///
+
+// Description: Add schools to a university
+// Author: Johan Torres
+
+router.put('/principal/main/university/:name', (req, res, next)=>{
+	University.findOneAndUpdate({name: req.params.name}, {
+		$set: {
+			school.schoolName: req.body.school.schoolName
+		}
+	},
+	function(err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Update successful");
+		}
+	});
+});
+
+/// ADD CAREERS TO UNIVERSITY ///
+
+// Description: Add careers to a university
+// Author: Johan Torres
+
+router.put('/principal/main/university/:name', (req, res, next)=>{
+	University.findOneAndUpdate({name: req.params.name}, {
+		$set: {
+			carrer.carrerCode: req.body.carrer.carrerCode,
+			carrer.carrerName: req.body.carrer.carrerName,
+			carrer.curriculum.curriculimID: req.body.carrer.curriculum.curriculimID,
+			carrer.curriculum.subject.subjectCode: req.body.carrer.curriculum.subject.subjectCode,
+			carrer.curriculum.subject.name: req.body.carrer.curriculum.subject.name,
+			carrer.curriculum.subject.requirement.requirementCode: req.body.carrer.curriculum.subject.requirement.requirementCode,
+			carrer.curriculum.subject.corequisite.corequisiteCode: req.body.carrer.curriculum.subject.corequisite.corequisiteCode,
+			carrer.curriculum.subject.credit: req.body.carrer.curriculum.subject.credit
+		}
+	},
+	function(err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Update successful");
+		}
+	});
+});
+
+
+/// ADD COURSES TO SCHOOL ///
+
+// Description: Add courses to a school
+// Author: Johan Torres
+
+router.put('/principal/main/school/:name', (req, res, next)=>{
+	School.findOneAndUpdate({name: req.params.name}, {
+		$set: {
+			course.courseID: req.body.course.courseID,
+			course.name: req.body.course.name
+		}
+	},
+	function(err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Update successful");
+		}
+	});
+});
+
+
+/// ADD GROUPS TO A COURSE ///
+
+// Description: Add groups to a course
+// Author: Johan Torres
+
+router.put('/principal/main/school/:name', (req, res, next)=>{
+	School.findOneAndUpdate({course.name: req.params.name}, {
+		$set: {
+			course.courseGroup.groupID: req.body.course.courseGroup.groupID,
+			course.courseGroup.groupNumber: req.body.course.courseGroup.groupNumber,
+			course.courseGroup.profesorID: req.body.course.courseGroup.profesorID,
+			course.courseGroup.schedule.day.start: req.body.course.courseGroup.schedule.day.start,
+			course.courseGroup.schedule.day.end: req.body.course.courseGroup.schedule.day.end
+		}
+	},
+	function(err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Update successful");
+		}
+	});
+});
 
 module.exports = router;
