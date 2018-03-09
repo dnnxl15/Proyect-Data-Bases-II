@@ -21,9 +21,54 @@
 			<font size="5" face="Arial"> Cell phone: <br></font>
 				<input type="text" name="cellPhone"><br>
 			<font size="5" face="Arial"> Identification: <br></font>
-				<input type="text" name="id"><br>
+				<input type="text" name="id"><br><br>
+
+			<font size="5" face="Arial"> University: <br></font>
+				<datalist id="university">
+    			</datalist>
+    			<input type="text" list="university"><br>
+
+			<font size="5" face="Arial"> School: <br></font>
+				<datalist id="school">
+    			</datalist>
+    			<input type="text" list="school"><br><br>
+
 			<input type="submit" value="Register">
 		</form>
 	</div>
 </body>
+<script type="text/javascript">
+  var mycars = new Array();
+  mycars[0]='CSS';
+  mycars[1]='JAVA';
+  mycars[2]='C++';
+  mycars[3]='PYTHON';
+  mycars[4]='C#';
+  mycars[5]='JAVASCRIPT';
+
+
+  var options = '';
+
+  for(var i = 0; i < mycars.length; i++)
+    options += '<option value="'+mycars[i]+'" />';
+
+  document.getElementById('university').innerHTML = options;
+
+  var mycars = new Array();
+  mycars[0]='CSS';
+  mycars[1]='JAVA';
+  mycars[2]='C++';
+  mycars[3]='PYTHON';
+  mycars[4]='C#';
+  mycars[5]='JAVASCRIPT';
+
+
+  var options = '';
+
+  for(var i = 0; i < mycars.length; i++)
+    options += '<option value="'+mycars[i]+'" />';
+
+  document.getElementById('school').innerHTML = options;
+
+</script>
 </html>

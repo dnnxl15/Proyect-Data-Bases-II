@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Carrer Course</title>
+  </head>
+  <body>
+    <datalist id="languages">
+    </datalist>
+    <button onclick="openWin()">SELECT </button> 
+<input type="text" list="languages">
+
+<script type="text/javascript">
+  var mycars = new Array();
+  mycars[0]='CSS';
+  mycars[1]='JAVA';
+  mycars[2]='C++';
+  mycars[3]='PYTHON';
+  mycars[4]='C#';
+  mycars[5]='JAVASCRIPT';
+
+
+  var options = '';
+
+  for(var i = 0; i < mycars.length; i++)
+    options += '<option value="'+mycars[i]+'" />';
+
+  document.getElementById('languages').innerHTML = options;
+</script>
+
+<script>
+  function openWin()
+{
+  var comboboxValue = document.getElementById('languages').value;
+    if (comboboxValue === "CECA")
+    {
+        window.open("StudentSignUp.html"); 
+    }
+    else if (comboboxValue === "profesor")
+    {
+        window.open("ProfesorSignUp.html");
+    }
+    else 
+      window.open("AdmiSignUp.html");
+}
+</script>
+  </body>
+</html>
