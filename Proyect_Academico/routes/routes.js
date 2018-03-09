@@ -56,6 +56,48 @@ router.post('/Student', (req, res, next)=>{
 	});
 });
 
+// Description: Delete a student by ID
+// Author: Johan Torres
+
+router.delete('/principal/main/:id', (req, res, next)=>{
+	Student.remove({_id: req.params.id}, function(err, result){
+		if(err)
+		{
+			res.json(err);
+		}
+		else
+		{
+			res.json(result);
+		}
+	});
+});
+
+// Description: Update student details
+// Author: Johan Torres
+
+router.put('/principal/main/:id', (req, res, next)=>{
+	Student.findOneAndUpdate({ _id: req.params.id }, {
+		$set: {
+			name: req.body.name,
+			lastname: req.body.lastname,
+			username: req.body.username,
+			password: req.body.password,
+			studentID: req.body.studentID,
+			cellPhone: req.body.cellPhone,
+			email: req.body.email,
+			universityName: req.body.universityName,
+			carrerName: req.body.carrerName
+		}
+	},
+	function(err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Update successful");
+		}
+	});
+});
+
 //----------------------
 // Profesor 
 //----------------------
@@ -106,6 +148,48 @@ router.post('/Profesor', (req, res, next)=>{
 	});
 });
 
+// Description: Delete a profesor by ID
+// Author: Johan Torres
+
+router.delete('/principal/main/:id', (req, res, next)=>{
+	Profesor.remove({_id: req.params.id}, function(err, result){
+		if(err)
+		{
+			res.json(err);
+		}
+		else
+		{
+			res.json(result);
+		}
+	});
+});
+
+// Description: Update profesor details
+// Author: Johan Torres
+
+router.put('/principal/main/:id', (req, res, next)=>{
+	Profesor.findOneAndUpdate({ _id: req.params.id }, {
+		$set: {
+			name: req.body.name,
+			lastname: req.body.lastname,
+			username: req.body.username,
+			password: req.body.password,
+			profesorID: req.body.profesorID,
+			cellPhone: req.body.cellPhone,
+			email: req.body.email,
+			universityName: req.body.universityName,
+			universitySchool: req.body.universitySchool
+		}
+	},
+	function(err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Update successful");
+		}
+	});
+});
+
 //----------------------
 // School 
 //----------------------
@@ -148,6 +232,40 @@ router.get('/principal/main/school/:name', (req, res, next)=>{
 	})
 });
 
+// Description: Delete a school by ID
+// Author: Johan Torres
+
+router.delete('/principal/main/school/:name', (req, res, next)=>{
+	School.remove({name: req.params.name}, function(err, result){
+		if(err)
+		{
+			res.json(err);
+		}
+		else
+		{
+			res.json(result);
+		}
+	});
+});
+
+// Description: Update school details
+// Author: Johan Torres
+
+router.put('/principal/main/school/:id', (req, res, next)=>{
+	School.findOneAndUpdate({ _id: req.params.id }, {
+		$set: {
+			name: req.body.name
+		}
+	},
+	function(err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Update successful");
+		}
+	});
+});
+
 //----------------------
 // University 
 //----------------------
@@ -169,13 +287,13 @@ router.post('/University', (req, res, next)=>{
 	//logic to add student
 	let newUniversity = new University({
 		name: req.body.name,
-		legalNumber: req.body.legalNumber,
+		legalNumber: req.body.legalNumber
 	});
 
 	newUniversity.save((err, school)=>{
 		if(err)
 		{
-			res.json({msg:'Failed to add school'});
+			res.json({msg:'Failed to add university'});
 		}
 		else{
 			res.json({msg: 'University added successfully'});
@@ -183,13 +301,11 @@ router.post('/University', (req, res, next)=>{
 	});
 });
 
+// Description: Delete a university
+// Author: Johan Torres
 
-
-
-
-
-router.delete('/Student/:id', (req, res, next)=>{
-	Student.remove({_id: req.params.id}, function(err, result){
+router.delete('/principal/main/university/:name', (req, res, next)=>{
+	University.remove({name: req.params.name}, function(err, result){
 		if(err)
 		{
 			res.json(err);
@@ -200,5 +316,25 @@ router.delete('/Student/:id', (req, res, next)=>{
 		}
 	});
 });
+
+// Description: Update university details
+// Author: Johan Torres
+
+router.put('/principal/main/university/:id', (req, res, next)=>{
+	University.findOneAndUpdate({ _id: req.params.id }, {
+		$set: {
+			name: req.body.name
+			legalNumber: req.body.legalNumber
+		}
+	},
+	function(err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Update successful");
+		}
+	});
+});
+
 
 module.exports = router;
