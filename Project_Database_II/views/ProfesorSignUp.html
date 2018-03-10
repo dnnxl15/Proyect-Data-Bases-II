@@ -1,42 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Register profesor</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8181F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+</style>
+
 </head>
-<body style="background-color:powderblue;">
-	<div class= "form-container"> 
-		<font size="5" face="Arial"> Register Profesor <br><br></font>
-		<form method="POST">
-			<font size="5" face="Arial"> Name: <br></font>
-				<input type="text" name="name"><br>
-			<font size="5" face="Arial"> Lastname: <br></font>
-				<input type="text" name="lastName"><br>
-			<font size="5" face="Arial"> Username: <br></font>
-				<input type="text" name="username"><br>
-			<font size="5" face="Arial"> Password: <br></font>
-				<input type="password" name="password"><br>
-			<font size="5" face="Arial"> Email: <br></font>
-				<input type="email" name="email"><br>
-			<font size="5" face="Arial"> Cell phone: <br></font>
-				<input type="text" name="cellPhone"><br>
-			<font size="5" face="Arial"> Identification: <br></font>
-				<input type="text" name="id"><br><br>
+<body>
 
-			<font size="5" face="Arial"> University: <br></font>
-				<datalist id="university">
-    			</datalist>
-    			<input type="text" list="university"><br>
+<h2>Sign Up Profesor</h2>
 
-			<font size="5" face="Arial"> School: <br></font>
-				<datalist id="school">
-    			</datalist>
-    			<input type="text" list="school"><br><br>
+<form action="/action_page.php">
+  <div class="container">
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" required>
 
-			<input type="submit" value="Register">
-		</form>
-	</div>
-</body>
+    <label for="lastname"><b>Lastname</b></label>
+    <input type="text" placeholder="Enter Lastname" name="lastname" required><br>
+
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required><br>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="cellphone"><b>Cell Phone</b></label>
+    <input type="text" placeholder="Enter Cell Phone" name="cellphone" required><br>
+
+    <label for="identification"><b>Identification</b></label>
+    <input type="text" placeholder="Enter Indentification" name="identification" required><br>
+
+    <label for="university"><b>University</b></label>
+    <datalist id="university">
+    </datalist>
+    <input type="text" list="university" placeholder="Select University" required>
+    <button type="submit" onclick="fillSchool()
+    ">Confirm University</button><br>
+
+    <label for="school"><b>School</b></label>
+    <datalist id="school">
+    </datalist>
+    <input type="text" list="school" placeholder="Select School" required><br>
+
+    <button type="submit">Register</button>
+  </div>
+</form>
+
 <script type="text/javascript">
   var mycars = new Array();
   mycars[0]='CSS';
@@ -50,25 +88,30 @@
   var options = '';
 
   for(var i = 0; i < mycars.length; i++)
-    options += '<option value="'+mycars[i]+'" />';
+    options += '<option value="' + mycars[i] + '" />';
 
   document.getElementById('university').innerHTML = options;
 
-  var mycars = new Array();
-  mycars[0]='CSS';
-  mycars[1]='JAVA';
-  mycars[2]='C++';
-  mycars[3]='PYTHON';
-  mycars[4]='C#';
-  mycars[5]='JAVASCRIPT';
+function fillSchool()
+{
+    var mycars = new Array();
+  mycars[0]='ABC';
+  mycars[1]='ACB';
+  mycars[2]='BAC';
+  mycars[3]='BCA';
+  mycars[4]='CAB';
+  mycars[5]='CBA';
 
 
   var options = '';
 
   for(var i = 0; i < mycars.length; i++)
-    options += '<option value="'+mycars[i]+'" />';
+    options += '<option value="' + mycars[i] + '" />';
 
   document.getElementById('school').innerHTML = options;
+}
 
 </script>
+
+</body>
 </html>

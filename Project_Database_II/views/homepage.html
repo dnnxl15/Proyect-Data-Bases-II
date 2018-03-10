@@ -1,39 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-function openWin()
-{
-	var comboboxValue = document.getElementById('combobox').value;
-    if (comboboxValue === "student")
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8181F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+</style>
+
+<script type="text/javascript">
+function signUpFunction() {
+    var signUpList = document.getElementById("signUpList");
+    document.getElementById("option").value = signUpList.options[signUpList.selectedIndex].text;
+}
+
+function verifySignUp(){
+    var optionSelect = document.getElementById("option").value;
+    if (optionSelect === "Student")
     {
-        window.open("StudentSignUp.html"); 
+        window.open("StudentSignUp.html")
     }
-    else if (comboboxValue === "profesor")
+    else if (optionSelect === "Profesor")
     {
-        window.open("ProfesorSignUp.html");
+        window.open("ProfesorSignUp.html")
     }
     else 
-    	window.open("AdmiSignUp.html");
+        window.open("AdmiSignUp.html")
 }
+
 </script>
+
 </head>
-
 <body>
-	<form>
-		<font size="5" face="Arial"> Username: <br></font>
-		<input type="text" name="username"><br>
-		<font size="5" face="Arial"> Password: <br></font>
-		<input type="password" name="password"><br><br>
-		<button>Enter </button><br><br>
-		<font size="5" face="Arial"> Create a new: <br></font>
-  		<select id="combobox">
-  			<option value="student">Student </option>
-  			<option value="profesor">Profesor </option>
-  			<option value="administrator">Administrator </option>
-		</select>
-		<button onclick="openWin()">Register </button> 
-	</form>
-</body>
 
+<h2>Login Form</h2>
+
+<form action="/action_page.php">
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+        
+    <button type="submit">Login</button>
+  </div>
+</form>
+
+<form>
+Create a new:
+<select id="signUpList" onchange="signUpFunction()">
+  <option></option>
+  <option value="student">Student</option>
+  <option value="profesor">Profesor</option>  
+  <option value="admi">Administrator</option>
+</select>
+<p>Comfirm selection: <input type="text" id="option" size="20"></p>
+<button type="submit" onclick="verifySignUp()">Sign In</button>
+</form>
+
+</body>
 </html>

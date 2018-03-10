@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8181F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Register Course Group</h2>
+
+<form action="/action_page.php">
+<div>
+    <label for="coursegroup"><b>Course Group</b></label><br>
+        <datalist id="school">
+        </datalist>
+        <input type="text" list="school" placeholder="Select School" name="schoolselect" required>
+        <button type="submit" onclick="fillCourse()">Confirm School</button><br>
+
+        <datalist id="course">
+        </datalist>
+        <input type="text" list="course" placeholder="Select Course" name="courseselect" required>
+
+    <label for="groupID"><b>Group Identificator</b></label>
+    <input type="text" placeholder="Enter Group Identificator" name="groupID" required>
+
+    <label for="groupnum"><b>Group Number</b></label>
+    <input type="number" name="groupnum" min="1" max="20">
+
+    <datalist id="profesor">
+    </datalist>
+    <input type="text" list="profesor" placeholder="Select Profesor" name="profesorselect" required>
+
+    <label for="starttime"><b>Start time</b></label>
+      <input type="time" name="starttime">
+
+    <label for="endtime"><b>End time</b></label>
+      <input type="time" name="endtime"><br>
+
+    <button type="submit">Register Course</button>
+</div>
+</form>
+
+<script type="text/javascript">
+  var mycars = new Array();
+  mycars[0]='CSS';
+  mycars[1]='JAVA';
+  mycars[2]='C++';
+  mycars[3]='PYTHON';
+  mycars[4]='C#';
+  mycars[5]='JAVASCRIPT';
+
+
+  var options = '';
+
+  for(var i = 0; i < mycars.length; i++)
+    options += '<option value="'+mycars[i]+'" />';
+
+  document.getElementById('school').innerHTML = options;
+
+function fillCourse()
+{
+  var mycars = new Array();
+  mycars[0]='CSS';
+  mycars[1]='JAVA';
+  mycars[2]='C++';
+  mycars[3]='PYTHON';
+  mycars[4]='C#';
+  mycars[5]='JAVASCRIPT';
+
+
+  var options = '';
+
+  for(var i = 0; i < mycars.length; i++)
+    options += '<option value="'+mycars[i]+'" />';
+
+  document.getElementById('course').innerHTML = options;
+  document.getElementById('profesor').innerHTML = options;
+}
+
+</script>
+
+</body>
+</html>

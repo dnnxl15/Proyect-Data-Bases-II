@@ -1,30 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Register University</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body style="background-color:powderblue;">
-	<div class= "form-container"> 
-		<font size="5" face="Arial"> Register University <br><br></font>
-		<form method="POST">
-			<font size="5" face="Arial"> University name: <br></font>
-				<input type="text" name="name"><br><br>
-				<input type="submit" value="Register University"><br><br><br>
-			<font size="5" face="Arial"> Register Carrer <br></font>
-			<select id="combobox">
-  			<option value="student">TEC </option>
-  			<option value="profesor">UNA </option>
-  			<option value="administrator">UCR </option>
-  			<input type="submit" value="Select University"><br><br>
-  			<font size="5" face="Arial"> Carrer name: <br></font>
-				<input type="text" name="carrerName"><br>
-				<font size="5" face="Arial"> Carrer code: <br></font>
-				<input type="text" name="carrercode"><br><br>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
 
-				<input type="submit" value="Register">
-		</select>
-		</form>
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8181F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Register University</h2>
+
+<form action="/action_page.php">
+  <div class="container">
+    <label for="universityname"><b>University Name</b></label>
+    <input type="text" placeholder="Enter University Name" name="name" required>
+
+    <label for="legalnum"><b>Legal Number</b></label>
+    <input type="text" placeholder="Enter Legal Number" name="legalnum" required><br>
+
+    <label for="latitude"><b>University Latitude</b></label>
+    <input type="text" placeholder="Enter University Latitude" name="latitude" required>
+
+    <label for="longitude"><b>University Longitude</b></label>
+    <input type="text" placeholder="Enter University Longitude" name="longitude" required>
+
+    <button type="submit">Register University</button>
+</div>
+</form>
+<form action="/action_page.php">
+<div>
+    <label for="carrername"><b>Carrer Name</b></label><br>
+        <datalist id="university">
+        </datalist> 
+        <input type="text" list="university" placeholder="Select University" name="universityselect" required>
+
+    <input type="text" placeholder="Enter Carrer Name" name="carrername" required><br>
+
+    <label for="carrercode"><b>Carrer Code</b></label>
+    <input type="text" placeholder="Enter code" name="carrercode" required>
+
+    <button type="submit">Register Carrer</button>
+</div>
+</form>
+
+<form action="/action_page.php">
+<div>
+    <label for="schoolname"><b>School Name</b></label><br>
+        <datalist id="university">
+        </datalist> 
+        <input type="text" list="university" placeholder="Select University" name="universityselect" required>
+
+    <input type="text" placeholder="Enter School Name" name="schoolname" required><br>
+
+    <button type="submit">Register School</button>
+</div>
+</form>
+
+<script type="text/javascript">
+  var mycars = new Array();
+  mycars[0]='CSS';
+  mycars[1]='JAVA';
+  mycars[2]='C++';
+  mycars[3]='PYTHON';
+  mycars[4]='C#';
+  mycars[5]='JAVASCRIPT';
+
+
+  var options = '';
+
+  for(var i = 0; i < mycars.length; i++)
+    options += '<option value="'+mycars[i]+'" />';
+
+  document.getElementById('university').innerHTML = options;
+</script>
 
 </body>
 </html>

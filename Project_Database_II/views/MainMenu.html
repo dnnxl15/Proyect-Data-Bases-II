@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8181F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var mycars = new Array();
+mycars[0]='CSS';
+mycars[1]='JAVA';
+mycars[2]='C++';
+mycars[3]='PYTHON';
+mycars[4]='C#';
+mycars[5]='JAVASCRIPT';
+
+
+var options = '';
+
+for(var i = 0; i < mycars.length; i++)
+  options += '<option value="'+mycars[i]+'" />';
+
+document.getElementById('menu').innerHTML = options;
+
+</script>
+
+</head>
+<body>
+
+<h2>Main menu</h2>
+
+<form action="/action_page.php">
+  <div class="container">
+
+    <label for="menu"><b>Menu</b></label>
+        <datalist id="menu">
+        </datalist>
+        <input type="text" list="menu" placeholder="Select Option" name="menuoption" required>
+
+    <button type="submit">Select</button>
+  </div>
+</form>
+
+</body>
+</html>

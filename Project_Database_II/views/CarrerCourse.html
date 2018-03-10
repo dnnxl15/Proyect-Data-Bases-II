@@ -1,52 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register Carrer Course</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8181F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+</style>
+
 </head>
-<body style="background-color:powderblue;">
-  <div class= "form-container"> 
-    <font size="5" face="Arial"> Register Carrer Course <br><br></font>
-    <form method="POST">
-      <font size="5" face="Arial"> University name: <br></font>
-        <select id="universityName">
-        <option value="student">TEC </option>
-        <option value="profesor">UNA </option>
-        <option value="administrator">UCR </option>
-        <input type="submit" value="Select University"><br><br>
-      <font size="5" face="Arial"> Carrer name: <br></font>
-      <select id="carrerName">
-        <option value="student">TEC </option>
-        <option value="profesor">UNA </option>
-        <option value="administrator">UCR </option>
-        <input type="submit" value="Select Carrer"><br><br>
-        <font size="5" face="Arial"> Course name: <br></font>
-        <select id="requirement">
-        <option value="student">TEC </option>
-        <option value="profesor">UNA </option>
-        <option value="administrator">UCR </option>
-        <input type="submit" value="Select Course">
+<body>
 
-        <font size="5" face="Arial"> Carrer name: </font>
+<h2>Register Course Group</h2>
 
-      <select id="requirement">
-        <option value="student">TEC </option>
-        <option value="profesor">UNA </option>
-        <option value="administrator">UCR </option>
-        <input type="submit" value="Select requirement">
+<form action="/action_page.php">
+<div>
+    <label for="university"><b>University</b></label>
+        <datalist id="university">
+        </datalist>
+        <input type="text" list="university" placeholder="Select University" name="universityselect" required>
+        <button type="submit" onclick="fillCarrer()">Confirm University</button><br>
 
-      <select id="coRequirement">
-        <option value="student">TEC </option>
-        <option value="profesor">UNA </option>
-        <option value="administrator">UCR </option>
-        <input type="submit" value="Select co-requirement"><br>
+        <label for="carrer"><b>Carrer</b></label>
+        <datalist id="carrer">
+        </datalist>
+        <input type="text" list="carrer" placeholder="Select Carrer" name="carrerselect" required>
 
-      <font size="5" face="Arial"> Select Semester: <br></font>
-        <input type="text" name="semester"><br><br>
+        <label for="school"><b>School</b></label>
+        <datalist id="school">
+        </datalist>
+        <input type="text" list="school" placeholder="Select School" name="schoolselect" required><br>
 
-        <input type="submit" value="Register">
-    </select>
-    </form>
+        <label for="requirement"><b>Requirement</b></label>
+        <datalist id="requirement">
+        </datalist>
+        <input type="text" list="requirement" placeholder="Select Requirement" name="requirementselect" required>
+
+        <label for="corequisite"><b>Corequisite</b></label>
+        <datalist id="corequisite">
+        </datalist>
+        <input type="text" list="corequisite" placeholder="Select Corequisite" name="corequisiteselect" required><br>
+
+    <label for="credit"><b>Credits Number</b></label>
+    <input type="number" name="credit" min="1" max="5">
+
+    <button type="submit">Register Course</button>
+</div>
+</form>
+
+<script type="text/javascript">
+  var mycars = new Array();
+  mycars[0]='CSS';
+  mycars[1]='JAVA';
+  mycars[2]='C++';
+  mycars[3]='PYTHON';
+  mycars[4]='C#';
+  mycars[5]='JAVASCRIPT';
+
+
+  var options = '';
+
+  for(var i = 0; i < mycars.length; i++)
+    options += '<option value="'+mycars[i]+'" />';
+
+  document.getElementById('university').innerHTML = options;
+
+function fillCarrer()
+{
+  var mycars = new Array();
+  mycars[0]='CSS';
+  mycars[1]='JAVA';
+  mycars[2]='C++';
+  mycars[3]='PYTHON';
+  mycars[4]='C#';
+  mycars[5]='JAVASCRIPT';
+
+
+  var options = '';
+
+  for(var i = 0; i < mycars.length; i++)
+    options += '<option value="'+mycars[i]+'" />';
+
+  document.getElementById('carrer').innerHTML = options;
+  document.getElementById('school').innerHTML = options;
+  document.getElementById('requirement').innerHTML = options;
+  document.getElementById('corequisite').innerHTML = options;
+}
+
+function fillCourse()
+{
+
+}
+</script>
 
 </body>
 </html>
