@@ -14,3 +14,19 @@ const profesorSchema = mongoose.Schema(
 });
 
 const Profesor = module.exports = mongoose.model('Profesor', profesorSchema);
+
+arrayProfesor = []
+
+module.exports.getProfesorBySchool = function(universitySchool, callback){
+	const query = {universitySchool: universitySchool}
+	Profesor.find(query, function(err, result){
+		if(err)
+		{
+			console.log(err);
+		}
+		else {
+			arrayProfesor.push(result.name),
+			console.log(arrayProfesor);
+		}
+	})
+}

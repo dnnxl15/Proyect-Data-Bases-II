@@ -25,3 +25,34 @@ const schoolSchema = mongoose.Schema(
 });
 
 const School = module.exports = mongoose.model('School', schoolSchema);
+
+var arrayCourses = []
+var arrayCourseGroups = []
+
+module.exports.getCourseBySchool = function(name, callback){
+	const query = {name: name}
+	School.find(query, function(err, result){
+		if(err)
+		{
+			console.log(err);
+		}
+		else {
+			arrayCourses.push(result.name),
+			console.log(arrayCourses);
+		}
+	})
+}
+
+module.exports.getGroupsByCourses = function(name, callback){
+	const query = {name: course.name}
+	School.find(query, function(err, result){
+		if (err)
+		{
+			console.log(err);
+		}
+		else{
+			arrayCourseGroups.push(result.course.courseGroup),
+			console.log(arrayCourseGroups);
+		}
+	})
+}
