@@ -342,7 +342,7 @@ router.put('/principal/main/university/:id', (req, res, next)=>{
 router.put('/principal/main/university/:name', (req, res, next)=>{
 	University.findOneAndUpdate({name: req.params.name}, {
 		$set: {
-			school.schoolName: req.body.school.schoolName
+			"school.schoolName": req.body.school.schoolName
 		}
 	},
 	function(err, result) {
@@ -362,14 +362,14 @@ router.put('/principal/main/university/:name', (req, res, next)=>{
 router.put('/principal/main/university/:name', (req, res, next)=>{
 	University.findOneAndUpdate({name: req.params.name}, {
 		$set: {
-			carrer.carrerCode: req.body.carrer.carrerCode,
-			carrer.carrerName: req.body.carrer.carrerName,
-			carrer.curriculum.curriculimID: req.body.carrer.curriculum.curriculimID,
-			carrer.curriculum.subject.subjectCode: req.body.carrer.curriculum.subject.subjectCode,
-			carrer.curriculum.subject.name: req.body.carrer.curriculum.subject.name,
-			carrer.curriculum.subject.requirement.requirementCode: req.body.carrer.curriculum.subject.requirement.requirementCode,
-			carrer.curriculum.subject.corequisite.corequisiteCode: req.body.carrer.curriculum.subject.corequisite.corequisiteCode,
-			carrer.curriculum.subject.credit: req.body.carrer.curriculum.subject.credit
+			"carrer.carrerCode": req.body.carrer.carrerCode,
+			"carrer.carrerName": req.body.carrer.carrerName,
+			"carrer.curriculum.curriculimID": req.body.carrer.curriculum.curriculimID,
+			"carrer.curriculum.subject.subjectCode": req.body.carrer.curriculum.subject.subjectCode,
+			"carrer.curriculum.subject.name": req.body.carrer.curriculum.subject.name,
+			"carrer.curriculum.subject.requirement.requirementCode": req.body.carrer.curriculum.subject.requirement.requirementCode,
+			"carrer.curriculum.subject.corequisite.corequisiteCode": req.body.carrer.curriculum.subject.corequisite.corequisiteCode,
+			"carrer.curriculum.subject.credit": req.body.carrer.curriculum.subject.credit
 		}
 	},
 	function(err, result) {
@@ -390,8 +390,8 @@ router.put('/principal/main/university/:name', (req, res, next)=>{
 router.put('/principal/main/school/:name', (req, res, next)=>{
 	School.findOneAndUpdate({name: req.params.name}, {
 		$set: {
-			course.courseID: req.body.course.courseID,
-			course.name: req.body.course.name
+			"course.courseID": req.body.course.courseID,
+			"course.name": req.body.course.name
 		}
 	},
 	function(err, result) {
@@ -410,13 +410,13 @@ router.put('/principal/main/school/:name', (req, res, next)=>{
 // Author: Johan Torres
 
 router.put('/principal/main/school/:name', (req, res, next)=>{
-	School.findOneAndUpdate({course.name: req.params.name}, {
+	School.findOneAndUpdate({"course.name": req.params.name}, {
 		$set: {
-			course.courseGroup.groupID: req.body.course.courseGroup.groupID,
-			course.courseGroup.groupNumber: req.body.course.courseGroup.groupNumber,
-			course.courseGroup.profesorID: req.body.course.courseGroup.profesorID,
-			course.courseGroup.schedule.day.start: req.body.course.courseGroup.schedule.day.start,
-			course.courseGroup.schedule.day.end: req.body.course.courseGroup.schedule.day.end
+			"course.courseGroup.groupID": req.body.course.courseGroup.groupID,
+			"course.courseGroup.groupNumber": req.body.course.courseGroup.groupNumber,
+			"course.courseGroup.profesorID": req.body.course.courseGroup.profesorID,
+			"course.courseGroup.schedule.day.start": req.body.course.courseGroup.schedule.day.start,
+			"course.courseGroup.schedule.day.end": req.body.course.courseGroup.schedule.day.end
 		}
 	},
 	function(err, result) {
