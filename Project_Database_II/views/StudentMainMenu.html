@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8181F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Main menu</h2>
+
+<form>
+  <div class="container">
+
+    <label for="course"><b>Course</b></label>
+        <datalist id="course">
+        </datalist>
+        <input type="text" list="course" id="courseList" placeholder="Select Course" name="courseoption" required>
+
+        <button type="submit" onclick="readGroup()">Select Course</button>
+
+        <table id="group">
+        </table>
+
+      <label for="group"><b>Group</b></label>
+          <datalist id="group">
+          </datalist>
+          <input type="text" list="group" id="groupList" placeholder="Select Group" name="groupoption" required>
+
+    <button type="submit" onclick="readOption()">Confirm Group</button>
+  </div>
+</form>
+
+<script type="text/javascript">
+
+var optionList = new Array();
+optionList[0]='Add University/Carrer/School';
+optionList[1]='Add Carrer Course';
+optionList[2]='Add School Course';
+optionList[3]='Add Course Group';
+
+var result = '';
+
+for(var j = 0; j < optionList.length; j++)
+  result += '<option value="'+optionList[j]+'" />';
+
+document.getElementById('course').innerHTML = result;
+
+function readGroup()
+{
+    var table = document.getElementById("group");
+    var row = table.insertRow(0);
+    var info = '<tr><td>' + "Profesor" + '</td><td>' + "Schedule" + '</td><td>' + "Group Number" + '</td></tr>';
+    for (var i = 0; i < 4; i++)
+    {
+      info += '<tr><td>' + "Profesor " + i+'</td><td>' + "Horario " + i + '</td><td>' + "Grupo " + i + '</td></tr>';
+    }
+    document.getElementById('group').innerHTML = info;
+}
+
+</script>
+
+</body>
+</html>

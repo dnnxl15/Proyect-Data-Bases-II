@@ -47,7 +47,7 @@ function verifySignUp(){
     {
         window.open("ProfesorSignUp.html")
     }
-    else 
+    else
         window.open("AdmiSignUp.html")
 }
 
@@ -65,7 +65,7 @@ function verifySignUp(){
 
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
-        
+
     <button type="submit">Login</button>
   </div>
 </form>
@@ -75,10 +75,10 @@ Create a new:
 <select id="signUpList" onchange="signUpFunction()">
   <option></option>
   <option value="student">Student</option>
-  <option value="profesor">Profesor</option>  
+  <option value="profesor">Profesor</option>
   <option value="admi">Administrator</option>
 </select>
-<p>Comfirm selection: <input type="text" id="option" size="20"></p>
+<p>Confirm selection: <input type="text" id="option" size="20"></p>
 <button type="submit" onclick="verifySignUp()">Sign In</button>
 </form>
 

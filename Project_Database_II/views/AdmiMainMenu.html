@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8181F7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Main menu</h2>
+
+<form>
+  <div class="container">
+
+    <label for="menu"><b>Menu</b></label>
+        <datalist id="menu">
+        </datalist>
+        <input type="text" list="menu" id="menuList" placeholder="Select Option" name="menuoption" required>
+
+    <button type="submit" onclick="readOption()">Select</button>
+  </div>
+</form>
+
+<script type="text/javascript">
+
+var optionList = new Array();
+optionList[0]='Add University/Carrer/School';
+optionList[1]='Add Carrer Course';
+optionList[2]='Add School Course';
+optionList[3]='Add Course Group';
+
+var result = '';
+
+for(var j = 0; j < optionList.length; j++)
+  result += '<option value="'+optionList[j]+'" />';
+
+document.getElementById('menu').innerHTML = result;
+
+function readOption()
+{
+    var option = document.getElementById("menuList").value;
+
+    if(option === "Add University/Carrer/School")
+      window.open("University.html");
+    else if(option === "Add Carrer Course")
+      window.open("CarrerCourse.html");
+    else if(option === "Add School Course")
+      window.open("SchoolCourse.html");
+    else if(option === "Add Course Group")
+      window.open("CreateGroup.html");
+    else
+    {
+      alert("Incorrect option selected");
+    }
+}
+
+
+</script>
+
+</body>
+</html>
