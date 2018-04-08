@@ -1,0 +1,32 @@
+<head>
+  <style type="text/css">
+    .page-header{
+      margin-bottom: 50px;
+    }
+
+    .btn::btn-primary{
+      margin-bottom: : 25px;
+    }
+  </style>
+</head>
+
+<h2 class="page-header">Register School</h2>
+<form (submit)="onRegisterSchool()">
+  <div class="form-group">
+    <label>School name</label>
+    <input type="text" [(ngModel)]="nameSchool" name="nameSchool" class="form-control">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+
+<form (submit)="onAddCourse()">
+  <div class="form-group">
+    <label>Course ID</label>
+    <input type="number" [(ngModel)]="courseID" name="courseID" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Name Course</label>
+    <input type="text" [(ngModel)]="nameCourse" name="nameCourse" class="form-control">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Register">
+</form>

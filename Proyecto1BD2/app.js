@@ -1,0 +1,56 @@
+// Import modules
+var express = require('express');
+var mongoose = require('mongoose');
+var bodyparser = require('body-parser');
+var path = require('path');
+const cors = require('cors');
+
+
+var app = express();
+
+
+const route = require('./routes/routes');
+
+//connect to mongoDB
+mongoose.connect('mongodb://localhost:27017/Project');
+
+//on connection
+mongoose.connection.on('connected', ()=>{
+	console.log('Connected to database mongodb');
+});
+
+mongoose.connection.on('error', (err)=>{
+	if(err)
+	{
+		console.log('Error in database connection: ' + err);
+	}
+		console.log('Connected to database mongodb');
+});
+
+var mongojs = require('mongojs')
+
+
+// port number
+const port = 3000;
+
+// adding middleware - cors
+app.use(cors());
+
+//body - parser
+app.use(bodyparser.json());
+
+//static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+
+app.use('/api', route);
+
+app.get('/', (req, res)=>{
+	res.send('Example');
+})
+
+// Testing
+app.listen(port, ()=>{console.log('Server started in port:' + port )});
+
